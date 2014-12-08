@@ -1,0 +1,74 @@
+$c-basic: #505050;
+
+$c-nav-btn: #203f61;
+$c-nav-btn-hover: darken(#203f61, 10%);
+$c-input: #383737;
+
+$c-link: #1e3b5e;
+$c-link-hover: darken($c-link, 10%);
+
+$c-highlight-1: #3eac64;
+$c-highlight-1-hover: darken($c-highlight-1, 10%);
+$c-highlight-1-light: #0fb368;
+
+$c-highlight-2: #d31666;
+$c-highlight-2-hover: darken($c-highlight-2, 10%);
+
+
+// LON
+
+//Site Dimension
+$site-width: 1400px;
+$site-min-width: 0;
+// $site-min-width: 335px;
+
+// Canvas menu config
+$canvasWidth: 245px;
+$shadowOffset: 15px;
+$shadowSize: 22px;
+
+
+$c-white: #fff;
+$c-black: #000;
+$c-red: #d40a0a;
+
+$c-mostly-black: #292929;
+$c-dark-gray: #181818;
+$c-verydark-gray: #424242;
+$c-very-dark-gray: #666666;
+$c-very-light-gray: #dedede;
+$c-light-gray: #efefef;
+
+$c-moderate-orange:#c4a660;
+$c-very-soft-orange:#fedc8e;
+$c-desaturated-dark-orange:#4a422d;
+$c-soft-yellow:#8c793e;
+$c-desaturated-yellow:#ccb976;
+$c-light-yellow:#fff5de;
+$c-light-gold: #ffd67a;
+
+//Admin colors
+$c-admin-very-dark-black: #2d2d2d;
+$c-admin-mostly-black: #212121;
+$c-admin-gray: #eee;
+
+$AdobeCaslonProBold: "AdobeCaslonProBold";
+$AdobeCaslonProRegular: "AdobeCaslonProRegular";
+$AdobeCaslonProSemibold: "AdobeCaslonProSemibold";
+$DidotLH: "LinotypeDidotHeadlineRegular";
+$DidotLHBold: "LinotypeDidotBold";
+$fallbackFonts: "Helvetica, Arial, sans-serif";
+
+// Font vairables
+$fw-light: 300;
+$fw-normal: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-extrabold: 900;
+
+$fs-small: 12px;
+$fs-normal: 14px;
+$fs-medium: 30px;
+$fs-large: 40px;
+$fs-xlarge: 45px;

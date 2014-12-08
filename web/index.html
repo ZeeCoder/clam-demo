@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clam demo</title>
+
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <br>
+    
+    <div id="tests-1">
+        <div class="jsm-test jsm-test__content jsm-test__highlight">
+            JSM Test
+        </div>
+
+        <div class="jsm-test jsm-test__content jsm-test__highlight" data-jsm-test='{"highlightValue": "red"}'>
+            JSM Test
+        </div>
+
+        <div class="jsm-test jsm-test__content jsm-test__highlight" data-jsm-test='{"highlightValue": "green"}'>
+            JSM Test
+        </div>
+
+        <div class="jsm-test jsm-test__content jsm-test__highlight" data-jsm-test='{"highlightValue": "blue"}'>
+            JSM Test
+        </div>
+    </div>
+    
+    <div id="tests-2">
+        <div class="jsm-test jsm-test__content jsm-test__highlight" data-jsm-test='{"highlightValue": "blue"}'>
+            JSM Test <span class="jsm-test__hi">Say hi in the console.</span>
+        </div>
+    </div>
+
+    <div class="jsm-popup__context jsm-popup__open-btn" data-jsm-popup='{"type": "test"}'>
+        Open the test popup
+    </div>
+
+    <div class="b-popup jsm-popup">
+        <div class="b-popup__wrapper jsm-popup__wrapper">
+            <div class="b-popup__border">
+                <div class="b-popup__container">
+                    <a class="b-popup__close-btn jsm-popup__close-btn">X</a>
+                    <div class="b-popup__content">
+                        <div class="b-popup__test">
+                            <h1>Test-popup</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempora voluptate at repudiandae non possimus atque praesentium labore doloremque libero laudantium eligendi, provident molestiae magnam similique dolorum voluptates mollitia magni!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempora voluptate at repudiandae non possimus atque praesentium labore doloremque libero laudantium eligendi, provident molestiae magnam similique dolorum voluptates mollitia magni!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempora voluptate at repudiandae non possimus atque praesentium labore doloremque libero laudantium eligendi, provident molestiae magnam similique dolorum voluptates mollitia magni!</p>
+                            <div class="jsm-popup__open-btn" data-jsm-popup='{"type": "test2"}'>
+                                Open the test2 popup
+                            </div>
+                        </div>
+                        <div class="b-popup__test2">
+                            <h1>Test2-popup</h1>
+                            <p class="jsm-popup__test2-custom-element"></p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempora voluptate at repudiandae non possimus atque praesentium labore doloremque libero laudantium eligendi, provident molestiae magnam similique dolorum voluptates mollitia magni!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempora voluptate at repudiandae non possimus atque praesentium labore doloremque libero laudantium eligendi, provident molestiae magnam similique dolorum voluptates mollitia magni!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempora voluptate at repudiandae non possimus atque praesentium labore doloremque libero laudantium eligendi, provident molestiae magnam similique dolorum voluptates mollitia magni!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>

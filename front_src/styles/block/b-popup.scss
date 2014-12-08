@@ -1,0 +1,144 @@
+$amp: ".b-popup";
+
+@mixin gpu-accelerate() {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+#{$amp} {
+    position: absolute;
+    top: 0;
+    left: -99999px;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: rgba(0,0,0,0.3);
+    opacity: 0;
+    @include gpu-accelerate;
+    transition: opacity .3s;
+
+    &__content-limiter {
+        max-height: 500px;
+        overflow: auto;
+    }
+
+    &__wrapper {
+        padding: 15px;
+        max-width: 922px;
+        @include gpu-accelerate;
+        transition: padding .2s;
+        margin: 50px auto;
+        position: relative;
+        background-color: $c-white;
+        text-align: center;
+        z-index: 1100;
+        @media only screen and (min-width: 650px) {
+            padding: 10px;
+        }
+    }
+
+    &__border {
+        padding:1px;
+        background-color: $c-desaturated-yellow;
+        linear-gradient: left, my-rgba(#88774e, 0.5) 0%, my-rgba(#f8d55c, 0.5) 50%, my-rgba(#88774e, 0.5) 100%;
+        display: block;
+    }
+
+        &__container {
+            background: $c-white;
+            position: relative;
+            text-align: center;
+            padding: 50px 15px 35px;
+            
+            @media #{$medium-up} {
+                padding: 95px 15px 35px;
+            }
+            
+            @media #{$large-up} {
+                padding: 95px 65px 35px 65px;
+            }
+        }
+
+            &__close-btn {
+                position:absolute;
+                cursor: pointer;                
+                padding: 15px;
+                top: 5px;
+                right: 5px;
+                @include gpu-accelerate;
+                transition: right .2s;
+                transform: scale(0.68, 0.68);
+                @media #{$medium-up} {
+                    padding: 0;
+                    top: 30px;
+                    right: 30px;
+                    transform: scale(1, 1);
+                }
+                @media only screen and (min-width: 650px) {
+                    top: 35px;
+                    right: 35px;
+                }
+            }
+
+            &__content {
+                word-break: break-word;
+                .title {
+                    font-family: $DidotLHBold;
+                    line-height: $fs-medium;
+                    text-transform: uppercase;
+                    color:$c-mostly-black;
+                    font-size: 20px;
+                    padding-bottom: 10px;
+                    @include gpu-accelerate;
+                    transition: font-size .3s, line-height .3s, padding .3s;
+
+                    @media #{$medium-up} {
+                        font-size: $fs-medium + 6;
+                        line-height: $fs-medium + 6;
+                        padding-bottom: 30px;
+                    }
+                }
+
+                p {
+                    color: $c-verydark-gray;
+                    line-height: 20px;
+                    
+                    @media #{$medium-up} {
+                        margin-top:20px;
+                    }
+                }
+            }
+
+            &__test,
+            &__test2 {
+                display: none;
+            }
+
+    &--show {
+        &_test {
+            opacity: 1;
+            #{$amp}__test {
+                display: block;
+            }
+        }
+        &_test2 {
+            opacity: 1;
+            #{$amp}__test2 {
+                display: block;
+            }
+        }
+    }
+
+    &--hide {
+        opacity: 0;
+    }
+
+    &--backtracking {
+        #{$amp}__close-btn, #{$amp}__close-btn-min {
+            opacity: .3;
+        }
+    }
+}
