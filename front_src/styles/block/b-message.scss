@@ -1,0 +1,43 @@
+$amp: ".b-message";
+
+#{$amp} {
+    padding: 15px 10px;
+    display: none;
+    position: relative;
+
+    &__close-btn {
+        text-align: center;
+        width: 25px;
+        line-height: 25px;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        margin-top: -12px;
+        background: rgba(0,0,0,.3);
+        border-radius: 10px;
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    &--type {
+        &_info {
+            display: block;
+            background: #9AEBFC;
+        }
+        
+        &_warning {
+            display: block;
+            background: #E5DB62;
+        }
+
+        &_alert {
+            display: block;
+            background: #E55D53;
+        }
+
+        &_success {
+            display: block;
+            background: #73E578;
+        }
+    }
+}

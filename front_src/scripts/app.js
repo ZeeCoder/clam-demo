@@ -1,21 +1,12 @@
-var test = require('./module/test');
-var popup_extension = require('./module/popup_extension');
-var test_extension = require('./module/test_extension');
-var cutil = require('../bower_components/clam/core/util');
-var attachFastClick = require('fastclick');
+var cutil = require('clam/core/util');
+var clam_container = require('clam/core/container');
+var $ = require('jquery');
+var highlighter = require('./clam_module/highlighter');
+var message = require('./clam_module/message');
+var highlighter_creator = require('./clam_module/highlighter_creator');
 
-cutil.createModulesByArray([
-        test
-    ],
-    {},
-    $('#tests-1')
-);
+clam_container.expose();
 
-specTest = new test_extension($('#tests-2 .jsm-test:nth(0)'));
-
-cutil.createModulesByArray([popup_extension]);
-
-
-$(function() {
-    attachFastClick(document.body);
-});
+cutil.createPrototypes(message, {fadeOutTime: 300});
+cutil.createPrototypes(highlighter, {}, $('#highlighter-1'));
+cutil.createPrototypes(highlighter_creator);

@@ -1,66 +1,73 @@
-'use strict';
-
 var env = 'dev';
 var src  = './front_src';
 var dest = './web';
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
+var glob = require('glob');
+var path = require('path');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var bower = require('main-bower-files');
+var _ = require('lodash');
 
 gulp.task('bower', function() {
-    return gulp.src(bower(), {base: src + '/bower_components'})
+    return gulp
+        .src(bower(), {base: src + '/bower_components'})
         .pipe(gulp.dest(dest + '/bower'));
 });
 
 gulp.task('scripts', function() {
-    return browserify({
-            entries: src + '/scripts/app.js',
-            debug: env == 'dev',
-        })
-        .bundle()
-        .on('error', handleErrors)
-        .pipe(source('app.js'))
-        .pipe(buffer())
-        .pipe(env == 'prod' ? $.uglify() : $.util.noop())
-        .pipe(gulp.dest(dest + '/js'));
+    var arrayBundle = function(srcArray) {
+        _.each(srcArray, function(sourcePath) { 
+            browserify({
+                entries: sourcePath,
+                debug: env == 'dev',
+                paths: [src + '/bower_components']
+            })
+            .bundle()
+            .on('error', handleErrors)
+            .pipe(source(path.basename(sourcePath)))
+            .pipe(buffer())
+            .pipe(env == 'prod' ? $.uglify() : $.util.noop())
+            .pipe(gulp.dest(dest + '/js'));
+        });
+    };
+
+    glob(src + '/scripts/*.js', {}, function(er, files) {
+        arrayBundle(files);
+    });
 });
 
 gulp.task('styles', function () {
-    return gulp.src(src + '/styles/*.scss')
-        // .pipe(env == 'dev' ? $.sourcemaps.init() : $.util.noop())
-        .pipe($.sass())
+    return gulp
+        .src(src + '/styles/*.scss')
+        .pipe(env == 'dev' ? $.sourcemaps.init() : $.util.noop())
+        .pipe($.sass({
+            includePaths: [src + '/bower_components'],
+            imagePath: '../images'
+        }))
         .on('error', handleErrors)
-        // .pipe(env == 'dev' ? $.sourcemaps.write() : $.util.noop())
-        .pipe($.autoprefixer({browsers: ['last 2 version']}))
+        .pipe($.autoprefixer({ browsers: ['> 1%'] }))
+        .pipe(env == 'dev' ? $.sourcemaps.write() : $.util.noop())
         .pipe(env == 'prod' ? $.csso() : $.util.noop())
         .pipe(gulp.dest(dest + '/css'));
 });
 
-gulp.task('images', function () {
-    return gulp.src(src + '/images/**/*')
-        .pipe($.cache($.imagemin({
-            progressive: true,
-            interlaced: true
-        })))
-        .pipe(gulp.dest(dest + '/image'));
-});
-
 gulp.task('watch', function() {
-    gulp.watch(src + '/styles/**/*.scss', ['styles']);
-    gulp.watch([
-            src + '/scripts/**/*.js',
-            src + '/bower_components/clam/**/*.js'
-        ], ['scripts']
-    );
+    $.watch(src + '/styles/**/*.scss', function () {
+        gulp.start('styles');
+    });
+    $.watch([
+        src + '/scripts/**/*.js',
+        src + '/bower_components/clam/**/*.js'
+    ], function () {
+        gulp.start('scripts');
+    });
 });
 
-gulp.task('env-to-prod', function() {
-    env = 'prod';
-});
+gulp.task('env-to-prod', function() {env = 'prod'});
 
 gulp.task('build', ['env-to-prod', 'bower', 'scripts', 'styles', 'images']);
 gulp.task('default', ['build']);

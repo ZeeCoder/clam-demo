@@ -3,71 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Clam demo</title>
-
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
     <br>
+    <h1>Clam Demo</h1>
     
-    <div id="tests-1">
-        <div class="jsm-test jsm-test__content jsm-test__highlight">
-            JSM Test
-        </div>
-
-        <div class="jsm-test jsm-test__content jsm-test__highlight" data-jsm-test='{"highlightValue": "red"}'>
-            JSM Test
-        </div>
-
-        <div class="jsm-test jsm-test__content jsm-test__highlight" data-jsm-test='{"highlightValue": "green"}'>
-            JSM Test
-        </div>
-
-        <div class="jsm-test jsm-test__content jsm-test__highlight" data-jsm-test='{"highlightValue": "blue"}'>
-            JSM Test
-        </div>
+    <h2>message</h2>
+    <div class="jsm-message b-message b-message--type_info">
+        <div class="jsm-message__message">This is the message module.</div>
+        <a href="javascript: void(0)" class="jsm-message__close-btn b-message__close-btn">x</a>
     </div>
-    
-    <div id="tests-2">
-        <div class="jsm-test jsm-test__content jsm-test__highlight" data-jsm-test='{"highlightValue": "blue"}'>
-            JSM Test <span class="jsm-test__hi">Say hi in the console.</span>
-        </div>
+    <div>
+        <br>
+        <b>test buttons: </b>
+        <a href="javascript: void(0)" class="jsm-message__test-btn" data-jsm-message='{"message": "Triggerred an info message.", "type": "info"}'>info</a> |
+        <a href="javascript: void(0)" class="jsm-message__test-btn" data-jsm-message='{"message": "Triggerred a warning message.", "type": "warning"}'>warning</a> |
+        <a href="javascript: void(0)" class="jsm-message__test-btn" data-jsm-message='{"message": "Triggerred a success message.", "type": "success"}'>success</a> |
+        <a href="javascript: void(0)" class="jsm-message__test-btn" data-jsm-message='{"message": "Triggerred an alert message.", "type": "alert"}'>alert</a>
     </div>
 
-    <div class="jsm-popup__context jsm-popup__open-btn" data-jsm-popup='{"type": "test"}'>
-        Open the test popup
-    </div>
+    <br>
+    <h2>highlighter</h2>
+    <p>
+        Global click count: <span class="jsm-highlighter__global-counter">0</span>
+    </p>
+    <div id="highlighter-1">
+        <div class="b-highlighter jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight">
+            Click me! (<span class="jsm-highlighter__local-counter">0</span>)
+            <div class="b-highlighter b-highlighter--embed jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "red"}'>
+                Click me! (<span class="jsm-highlighter__local-counter">0</span>)
 
-    <div class="b-popup jsm-popup">
-        <div class="b-popup__wrapper jsm-popup__wrapper">
-            <div class="b-popup__border">
-                <div class="b-popup__container">
-                    <a class="b-popup__close-btn jsm-popup__close-btn">X</a>
-                    <div class="b-popup__content">
-                        <div class="b-popup__test">
-                            <h1>Test-popup</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempora voluptate at repudiandae non possimus atque praesentium labore doloremque libero laudantium eligendi, provident molestiae magnam similique dolorum voluptates mollitia magni!</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempora voluptate at repudiandae non possimus atque praesentium labore doloremque libero laudantium eligendi, provident molestiae magnam similique dolorum voluptates mollitia magni!</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempora voluptate at repudiandae non possimus atque praesentium labore doloremque libero laudantium eligendi, provident molestiae magnam similique dolorum voluptates mollitia magni!</p>
-                            <div class="jsm-popup__open-btn" data-jsm-popup='{"type": "test2"}'>
-                                Open the test2 popup
-                            </div>
-                        </div>
-                        <div class="b-popup__test2">
-                            <h1>Test2-popup</h1>
-                            <p class="jsm-popup__test2-custom-element"></p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempora voluptate at repudiandae non possimus atque praesentium labore doloremque libero laudantium eligendi, provident molestiae magnam similique dolorum voluptates mollitia magni!</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempora voluptate at repudiandae non possimus atque praesentium labore doloremque libero laudantium eligendi, provident molestiae magnam similique dolorum voluptates mollitia magni!</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempora voluptate at repudiandae non possimus atque praesentium labore doloremque libero laudantium eligendi, provident molestiae magnam similique dolorum voluptates mollitia magni!</p>
-                        </div>
+                <div class="b-highlighter b-highlighter--embed jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "green"}'>
+                    Click me! (<span class="jsm-highlighter__local-counter">0</span>)
+
+                    <div class="b-highlighter b-highlighter--embed jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "blue"}'>
+                        Click me! (<span class="jsm-highlighter__local-counter">0</span>)
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="b-highlighter jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "red"}'>
+            Click me! (<span class="jsm-highlighter__local-counter">0</span>)
+        </div>
     </div>
 
+    <div id="highlighter-2">
+        <h2>Non-initialized modules</h2>
+        <a href="javascript:void(0)" class="jsm-highlighter-creator jsm-highlighter-creator__activate-btn"><span class="">Activate modules</span></a>
+        <div class="b-highlighter b-highlighter--inactive jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "green"}'>
+            Click me! (<span class="jsm-highlighter__local-counter">0</span>)
+            <div class="b-highlighter b-highlighter--embed b-highlighter--inactive jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "red"}'>
+                Click me! (<span class="jsm-highlighter__local-counter">0</span>)
+            </div>
+        </div>
+
+        <div class="b-highlighter b-highlighter--inactive jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "blue"}'>
+            Click me! (<span class="jsm-highlighter__local-counter">0</span>)
+        </div>
+    </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="bower/jquery/dist/jquery.js"><\/script>')</script>
     <script src="js/app.js"></script>
-
 </body>
 </html>

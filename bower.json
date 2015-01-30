@@ -1,8 +1,10 @@
 {
   "name": "clam-demo",
   "devDependencies": {
-    "clam": "~0.2.0-alpha",
-    "foundation": "~5.4.7",
+    "clam": "0.3.0-alpha1",
     "normalize-scss": "~3.0.2"
+  },
+  "dependencies": {
+    "jquery": "~2.1.3"
   }
 }

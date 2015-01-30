@@ -1,9 +1,8 @@
-@import "../bower_components/normalize-scss/normalize";
-@import "../bower_components/foundation/scss/foundation/components/grid";
+@import "normalize-scss/normalize";
 
 @import "vars";
 
-@import "block/b-test";
-@import "block/b-popup";
+@import "block/b-highlighter";
+@import "block/b-message";
 
 @import "shame";

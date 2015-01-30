@@ -1,0 +1,40 @@
+$amp: ".b-highlighter";
+
+#{$amp} {
+    font-size: 20px;
+    line-height: 40px;
+    cursor: pointer;
+    padding-left: 10px;
+    background: #aaa;
+    color: #fff;
+    transition: background .3s;
+
+    &--embed {
+        border-left: 1px solid #000;
+        margin-left: 20px;
+    }
+
+    &--inactive {
+        background: #eee;
+        cursor: default;
+    }
+
+    &--highlight {
+        background: #000;
+
+        &_red {
+            background: #f00;
+            color: #fff;
+        }
+
+        &_green {
+            background: #0f0;
+            color: #fff;
+        }
+
+        &_blue {
+            background: #00f;
+            color: #fff;
+        }
+    }
+}
