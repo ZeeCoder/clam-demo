@@ -1,0 +1,25 @@
+$amp: ".b-dynamic";
+
+#{$amp} {
+    background: #555;
+    padding: 20px;
+    transition: background .3s;
+
+    a {
+        color: #fff;
+    }
+
+    &__additional-modules:not(:empty) {
+        border-left: 1px solid #000;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+
+    &--highlight {
+        background: #ccc;
+
+        & > a {
+            color: #000;
+        }
+    }
+}

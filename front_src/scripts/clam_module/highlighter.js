@@ -7,7 +7,7 @@ var $ = require('jquery');
 
 var settings = {
     conf: {
-        highlightValue: true
+        highlightType: true
     },
     hasGlobalHooks: true
 };
@@ -15,17 +15,14 @@ var settings = {
 var globalCount = 0;
 
 function Highlighter($jQObj, conf) {
-    var self = this;
+    //var self = this;
     clam_module.apply(this, [$jQObj, settings, conf]);
     this.expose();
 
     this.localCount = 0;
     this.active = true;
 
-    this.getHook('highlight').on('click', function(e) {
-        e.stopPropagation();
-        self.toggleHighlight();
-    });
+    this.getHook('highlight').on('click', $.proxy(this.toggleHighlight, this));
 
     this.highlightMod = new modifier(
         this.getHook('highlight'),
@@ -35,7 +32,9 @@ function Highlighter($jQObj, conf) {
 
 inherits(Highlighter, clam_module);
 
-Highlighter.prototype.toggleHighlight = function() {
+Highlighter.prototype.toggleHighlight = function(e) {
+    e.stopPropagation();
+
     if (!this.active) {
         return;
     }
@@ -46,7 +45,7 @@ Highlighter.prototype.toggleHighlight = function() {
     if (this.highlightMod.get('highlight')) {
         this.highlightMod.off('highlight');
     } else {
-        this.highlightMod.set('highlight', this.module.conf.highlightValue);
+        this.highlightMod.set('highlight', this.module.conf.highlightType);
     }
 };
 

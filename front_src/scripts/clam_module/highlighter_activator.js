@@ -12,22 +12,20 @@ var settings = {
     conf: {}
 };
 
-function HighlighterCreator($jQObj, conf) {
-    var self = this;
+function HighlighterActivator($jQObj, conf) {
+    //var self = this;
     clam_module.apply(this, [$jQObj, settings, conf]);
     this.expose();
     // throw this.prettify('error');
     
     this.allActivated = false;
 
-    this.getHook('activate-btn').on('click', function(e) {
-        self.activate();
-    });
+    this.getHook('activate-btn').on('click', $.proxy(this.activate, this));
 }
 
-inherits(HighlighterCreator, clam_module);
+inherits(HighlighterActivator, clam_module);
 
-HighlighterCreator.prototype.activate = function() {
+HighlighterActivator.prototype.activate = function() {
     if (this.allActivated) {
         return;
     }
@@ -43,4 +41,4 @@ HighlighterCreator.prototype.activate = function() {
     });
 };
 
-module.exports = HighlighterCreator;
+module.exports = HighlighterActivator;

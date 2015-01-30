@@ -28,14 +28,10 @@ function Message($jQObj, conf) {
     this.isOpen = !!this.messageMod.get('type');
     
     this.getHooks('test-btn').each(function(){
-        $(this).on('click', function() {
-            self.testClick($(this));
-        });
+        $(this).on('click', $.proxy(self.testClick, self, $(this)));
     });
     
-    this.getHooks('close-btn').on('click', function(){
-        self.close();
-    });
+    this.getHooks('close-btn').on('click', $.proxy(this.close, this));
 }
 
 inherits(Message, clam_module);
@@ -56,6 +52,7 @@ Message.prototype.message = function(message, type) {
 
 Message.prototype.close = function(message, type) {
     this.module.$object.fadeOut(300);
+    this.isOpen = false;
 };
 
 Message.prototype.testClick = function($hook) {

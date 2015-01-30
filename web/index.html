@@ -6,61 +6,74 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-    <br>
-    <h1>Clam Demo</h1>
-    
-    <h2>message</h2>
-    <div class="jsm-message b-message b-message--type_info">
-        <div class="jsm-message__message">This is the message module.</div>
-        <a href="javascript: void(0)" class="jsm-message__close-btn b-message__close-btn">x</a>
-    </div>
-    <div>
-        <br>
-        <b>test buttons: </b>
-        <a href="javascript: void(0)" class="jsm-message__test-btn" data-jsm-message='{"message": "Triggerred an info message.", "type": "info"}'>info</a> |
-        <a href="javascript: void(0)" class="jsm-message__test-btn" data-jsm-message='{"message": "Triggerred a warning message.", "type": "warning"}'>warning</a> |
-        <a href="javascript: void(0)" class="jsm-message__test-btn" data-jsm-message='{"message": "Triggerred a success message.", "type": "success"}'>success</a> |
-        <a href="javascript: void(0)" class="jsm-message__test-btn" data-jsm-message='{"message": "Triggerred an alert message.", "type": "alert"}'>alert</a>
-    </div>
+    <div class="b-layout">
+        <h1>Clam Demo</h1>
+        
+        <h2>message</h2>
+        <div class="jsm-message b-message b-message--type_info">
+            <div class="jsm-message__message">This is the message module.</div>
+            <a href="javascript: void(0)" class="jsm-message__close-btn b-message__close-btn">x</a>
+        </div>
+        <div>
+            <br>
+            <b>test buttons: </b>
+            <a href="javascript: void(0)" class="jsm-message__test-btn" data-jsm-message='{"message": "Triggerred an info message.", "type": "info"}'>info</a> |
+            <a href="javascript: void(0)" class="jsm-message__test-btn" data-jsm-message='{"message": "Triggerred a warning message.", "type": "warning"}'>warning</a> |
+            <a href="javascript: void(0)" class="jsm-message__test-btn" data-jsm-message='{"message": "Triggerred a success message.", "type": "success"}'>success</a> |
+            <a href="javascript: void(0)" class="jsm-message__test-btn" data-jsm-message='{"message": "Triggerred an alert message.", "type": "alert"}'>alert</a>
+        </div>
 
-    <br>
-    <h2>highlighter</h2>
-    <p>
-        Global click count: <span class="jsm-highlighter__global-counter">0</span>
-    </p>
-    <div id="highlighter-1">
-        <div class="b-highlighter jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight">
-            Click me! (<span class="jsm-highlighter__local-counter">0</span>)
-            <div class="b-highlighter b-highlighter--embed jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "red"}'>
+        <div id="highlighter-1">
+            <br>
+            <h2>highlighter</h2>
+            <p>
+                Global click count: <span class="jsm-highlighter__global-counter">0</span>
+            </p>
+            <div class="b-highlighter jsm-highlighter jsm-highlighter__highlight">
                 Click me! (<span class="jsm-highlighter__local-counter">0</span>)
-
-                <div class="b-highlighter b-highlighter--embed jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "green"}'>
+                <div class="b-highlighter b-highlighter--embed jsm-highlighter jsm-highlighter__highlight" data-jsm-highlighter='{"highlightType": "red"}'>
                     Click me! (<span class="jsm-highlighter__local-counter">0</span>)
 
-                    <div class="b-highlighter b-highlighter--embed jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "blue"}'>
+                    <div class="b-highlighter b-highlighter--embed jsm-highlighter jsm-highlighter__highlight" data-jsm-highlighter='{"highlightType": "green"}'>
                         Click me! (<span class="jsm-highlighter__local-counter">0</span>)
+
+                        <div class="b-highlighter b-highlighter--embed jsm-highlighter jsm-highlighter__highlight" data-jsm-highlighter='{"highlightType": "blue"}'>
+                            Click me! (<span class="jsm-highlighter__local-counter">0</span>)
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="b-highlighter jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "red"}'>
-            Click me! (<span class="jsm-highlighter__local-counter">0</span>)
-        </div>
-    </div>
-
-    <div id="highlighter-2">
-        <h2>Non-initialized modules</h2>
-        <a href="javascript:void(0)" class="jsm-highlighter-creator jsm-highlighter-creator__activate-btn"><span class="">Activate modules</span></a>
-        <div class="b-highlighter b-highlighter--inactive jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "green"}'>
-            Click me! (<span class="jsm-highlighter__local-counter">0</span>)
-            <div class="b-highlighter b-highlighter--embed b-highlighter--inactive jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "red"}'>
+            <div class="b-highlighter jsm-highlighter jsm-highlighter__highlight" data-jsm-highlighter='{"highlightType": "red"}'>
                 Click me! (<span class="jsm-highlighter__local-counter">0</span>)
             </div>
         </div>
 
-        <div class="b-highlighter b-highlighter--inactive jsm-highlighter jsm-highlighter__content jsm-highlighter__highlight" data-jsm-highlighter='{"highlightValue": "blue"}'>
-            Click me! (<span class="jsm-highlighter__local-counter">0</span>)
+        <div id="highlighter-2">
+            <br>
+            <h2>Non-initialized modules</h2>
+            <a href="javascript:void(0)" class="jsm-highlighter-activator jsm-highlighter-activator__activate-btn">Activate modules</a>
+            <div class="b-highlighter b-highlighter--inactive jsm-highlighter jsm-highlighter__highlight" data-jsm-highlighter='{"highlightType": "green"}'>
+                Click me! (<span class="jsm-highlighter__local-counter">0</span>)
+                <div class="b-highlighter b-highlighter--embed b-highlighter--inactive jsm-highlighter jsm-highlighter__highlight" data-jsm-highlighter='{"highlightType": "red"}'>
+                    Click me! (<span class="jsm-highlighter__local-counter">0</span>)
+                </div>
+            </div>
+
+            <div class="b-highlighter b-highlighter--inactive jsm-highlighter jsm-highlighter__highlight" data-jsm-highlighter='{"highlightType": "blue"}'>
+                Click me! (<span class="jsm-highlighter__local-counter">0</span>)
+            </div>
+        </div>
+
+        <div id="highlighter-3">
+            <br>
+            <h2>dynamic</h2>
+            <div class="jsm-dynamic b-dynamic">
+                <a href="javascript: void(0)" class="jsm-dynamic__add-embedded-btn">New embedded</a> |
+                <a href="javascript: void(0)" class="jsm-dynamic__add-sibling-btn">New sibling</a> |
+                <a href="javascript: void(0)" class="jsm-dynamic__toggle-highlight">Highlight</a>
+                <div class="b-dynamic__additional-modules jsm-dynamic__additional-modules"></div>
+            </div>
         </div>
     </div>
 

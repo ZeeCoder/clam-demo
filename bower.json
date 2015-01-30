@@ -1,7 +1,7 @@
 {
   "name": "clam-demo",
   "devDependencies": {
-    "clam": "0.3.0-alpha1",
+    "clam": "0.3.0-alpha3",
     "normalize-scss": "~3.0.2"
   },
   "dependencies": {
