@@ -3,7 +3,6 @@ var cutil = require('clam/core/util');
 var clam_module = require('clam/core/module');
 var modifier = require('clam/core/modifier');
 var inherits = require('util').inherits;
-var cutil = require('clam/core/util');
 var dynamic_config = require('../conf/dynamic_config');
 var $ = require('jquery');
 
