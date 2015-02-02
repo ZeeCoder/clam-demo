@@ -6,10 +6,12 @@ var dynamic = require('./clam_module/dynamic');
 var dynamic_config = require('./conf/dynamic_config');
 var message = require('./clam_module/message');
 var highlighter_activator = require('./clam_module/highlighter_activator');
+var clam_scroller = require('clam-scroller/module/scroller');
 
 clam_container.expose();
 
 cutil.createPrototypes(message, {fadeOutTime: 300});
 cutil.createPrototypes(highlighter, {}, $('#highlighter-1'));
 cutil.createPrototypes(highlighter_activator);
+cutil.createPrototypes(clam_scroller);
 cutil.createPrototypes(dynamic, dynamic_config);
