@@ -1,9 +1,9 @@
 {
   "name": "clam-demo",
   "devDependencies": {
-    "clam": "0.3.0-alpha3",
+    "clam": "0.4.0-alpha3",
     "normalize-scss": "~3.0.2",
-    "clam-scroller": "~0.1.0"
+    "clam-scroller": "~1.0"
   },
   "dependencies": {
     "jquery": "~2.1.3"

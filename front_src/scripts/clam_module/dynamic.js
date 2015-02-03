@@ -8,7 +8,8 @@ var $ = require('jquery');
 
 var settings = {
     conf: {
-        prototypeHTML: '<div class="jsm-dynamic b-dynamic"> <a href="javascript: void(0)" class="jsm-dynamic__add-embedded-btn">New embedded</a> | <a href="javascript: void(0)" class="jsm-dynamic__add-sibling-btn">New sibling</a> | <a href="javascript: void(0)" class="jsm-dynamic__toggle-highlight">Highlight</a> | <a href="javascript: void(0)" class="jsm-dynamic__destroy">Destroy</a> <div class="b-dynamic__additional-modules jsm-dynamic__additional-modules"></div> </div>',
+        prototypeHTML: '<div class="jsm-dynamic b-dynamic"> <a href="javascript: void(0)" class="jsm-dynamic__add-embedded-btn">New embedded</a> | <a href="javascript: void(0)" class="jsm-dynamic__add-sibling-btn">New sibling</a> | <a href="javascript: void(0)" class="jsm-dynamic__toggle-highlight">Highlight</a> <div class="b-dynamic__additional-modules jsm-dynamic__additional-modules"></div> </div>',
+        // prototypeHTML: '<div class="jsm-dynamic b-dynamic"> <a href="javascript: void(0)" class="jsm-dynamic__add-embedded-btn">New embedded</a> | <a href="javascript: void(0)" class="jsm-dynamic__add-sibling-btn">New sibling</a> | <a href="javascript: void(0)" class="jsm-dynamic__toggle-highlight">Highlight</a> | <a href="javascript: void(0)" class="jsm-dynamic__destroy">Destroy</a> <div class="b-dynamic__additional-modules jsm-dynamic__additional-modules"></div> </div>',
         allowAddSibling: true,
         allowAddEmbedded: true
     }
@@ -16,8 +17,7 @@ var settings = {
 };
 
 function Dynamic($jQObj, conf) {
-    //var self = this;
-    console.log('Dynamic');
+    // var self = this;
     clam_module.apply(this, [$jQObj, settings, conf]);
     this.expose();
 
@@ -47,14 +47,7 @@ inherits(Dynamic, clam_module);
 // };
 
 Dynamic.prototype.addEmbedded = function() {
-    var self = this;
-    $.when(this.triggerEvent('add'))
-    .fail(function() {
-        console.log('ERRROR');
-    })
-    .always(function() {
-        self.addAdditionalModule();
-    });
+    this.addAdditionalModule();
 };
 
 Dynamic.prototype.addSibling = function() {

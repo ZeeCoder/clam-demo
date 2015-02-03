@@ -13,6 +13,7 @@ var settings = {
     }
 };
 
+
 function Message($jQObj, conf) {
     var self = this;
     clam_module.apply(this, [$jQObj, settings, conf]);
