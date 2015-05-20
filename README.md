@@ -1,5 +1,5 @@
-Clam Demo Application
-=========
+# Clam Demo Application
+[![Project Status](http://stillmaintained.com/ZeeCoder/clam-demo.png)](http://stillmaintained.com/ZeeCoder/clam-demo)
 
 To see the demo, just clone this repo and visit the web/ folder.
 
